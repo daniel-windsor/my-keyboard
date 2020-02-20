@@ -2,12 +2,24 @@ body {
   font-family: 'Roboto',
     sans-serif;
   color: whitesmoke;
+  background-color: darkslategray;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
   margin: 0px;
+  overflow: hidden;
+}
+
+#text-container {
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+  font-size: 40px;
+  margin: 50px;
+  height: 300px;
+  max-width: 1100px;
 }
 
 .container {
@@ -16,26 +28,27 @@ body {
   width: 1100px;
   height: 340px;
   border: 8px solid black;
+  border-radius: 5px;
   padding: 10px 0;
-  background: linear-gradient(318deg, #9400d3, #4b0082, #0000ff, #00ff00, #ffff00, #ff7f00, #ff0000);
+  background: linear-gradient(270deg, #9400d3, #4b0082, #0000ff, #00ff00, #ffff00, #ff7f00, #ff0000);
   background-size: 1400% 1400%;
 
-  animation: backlight 30s ease infinite;
+  animation: backlight 60s ease infinite;
 }
 
- @keyframes backlight {
-   0% {
-     background-position: 83% 0%
-   }
+@keyframes backlight {
+  0% {
+    background-position: 0% 0%
+  }
 
-   50% {
-     background-position: 18% 100%
-   }
+  50% {
+    background-position: 100% 100%
+  }
 
-   100% {
-     background-position: 83% 0%
-   }
- }
+  100% {
+    background-position: 0% 0%
+  }
+}
 
 .row-container {
   display: flex;
@@ -90,7 +103,8 @@ body {
   border: 1px solid #3e8039
 }
 
-#altL, #altR {
+#altL,
+#altR {
   width: 68px;
   background-color: #7365B5;
   border: 1px solid #413966;
@@ -115,15 +129,16 @@ body {
   background-color: #191919;
   text-align: center;
   transition: all .07s ease;
--webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 1);
--moz-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 1);
-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 1);
 }
 
 .pressed {
-  -webkit-box-shadow: 0px 0px 10px 10px rgba(255, 0, 0, 1);
-  -moz-box-shadow: 0px 0px 10px 10px rgba(255, 0, 0, 1);
-  box-shadow: 0px 0px 10px 10px rgba(255, 0, 0, 1);
+  transform: scale(0.9);
+  -webkit-box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 1);
 }
 
 .lTop {

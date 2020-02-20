@@ -1,3 +1,5 @@
+let word = []
+
 function keyPress(e) {
   const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
 
@@ -5,14 +7,35 @@ function keyPress(e) {
     return
   }
 
-  key.classList.add('pressed')
+  key.classList.add('pressed');
+
+  let regex = /Shift|Tab|Backspace|Enter|CapsLock|Control|Alt/
+
+  switch (e.key) {
+    case "Backspace":
+      word.pop()
+      break;
+    case "Enter":
+      word = []
+      break;
+    default:
+      if (!regex.test(e.key)) {
+        word.push(e.key)
+      }
+  }
+
+document.getElementById('text-container').innerHTML = "<span>" + word.join('') + "</span>"
 }
 
-function endTransition(evt) {
-  evt.target.classList.remove('pressed')
+function endTransition(e) {
+  const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
+
+  if (!key) {
+    return
+  }
+
+  key.classList.remove('pressed')
 }
 
 window.addEventListener('keydown', keyPress);
-
-const keys = Array.from(document.querySelectorAll('.key'));
-keys.forEach(key => key.addEventListener('transitionend', endTransition));
+window.addEventListener('keyup', endTransition)
