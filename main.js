@@ -71,24 +71,27 @@ function stopAudio() {
   console.log("yes")
 }
 
-//Handle intro animation and listeners
-function transitionEnd(e) {
+//Handle intro animation and listeners (broken for now)
+// function transitionEnd(e) {
 
-  if (e.target.classList == "text fade") {
-    document.getElementsByClassName('text')[0].classList.remove('fade')
+//   if (e.target.classList == "text fade") {
+//     document.getElementsByClassName('text')[0].classList.remove('fade')
 
-  } else if (e.target.classList == "text") {
-    document.getElementsByClassName('text')[0].innerHTML = "Would you like to try it?"
-    document.getElementsByClassName('text')[0].classList.add('fade')
-    window.removeEventListener('transitionend', transitionEnd)
+//   } else if (e.target.classList == "text") {
+//     document.getElementsByClassName('text')[0].innerHTML = "Would you like to try it?"
+//     document.getElementsByClassName('text')[0].classList.add('fade')
+//     window.removeEventListener('transitionend', transitionEnd)
+
+//     window.addEventListener('keydown', keyPress);
+//     window.addEventListener('keyup', keyRelease)
+
+//   }
+// }
+
+//Start intro animation
+// document.onload = document.getElementsByClassName('text')[0].classList.add('fade')
+
+// window.addEventListener('transitionend', transitionEnd)
 
     window.addEventListener('keydown', keyPress);
     window.addEventListener('keyup', keyRelease)
-
-  }
-}
-
-//Start intro animation
-document.onload = document.getElementsByClassName('text')[0].classList.add('fade')
-
-window.addEventListener('transitionend', transitionEnd)
