@@ -1,8 +1,11 @@
 let word = []
+let audio = new Audio('keypress.wav')
+let timer;
 
 function keyPress(e) {
 
   let key = ""
+
 
   // Accounts for both modifier keys (shift, ctrl, alt)
   if (e.keyCode == 16 | e.keyCode == 17 || e.keyCode == 18) {
@@ -35,6 +38,7 @@ function keyPress(e) {
   }
 
   document.getElementsByClassName('text-container')[0].innerHTML = "<span>" + word.join('') + "</span>"
+
 }
 
 function keyRelease(e) {
@@ -51,14 +55,28 @@ function keyRelease(e) {
   }
 
   key.classList.remove('pressed')
+  if (timer) {
+    window.clearTimeout(timer)
+  }
+  timer = window.setTimeout(stopAudio, 250)
+
+  if (audio.paused) {
+
+    audio.play()
+  }
+}
+
+function stopAudio() {
+  audio.pause()
+  console.log("yes")
 }
 
 //Handle intro animation and listeners
 function transitionEnd(e) {
-  console.log(e.target)
 
   if (e.target.classList == "text fade") {
     document.getElementsByClassName('text')[0].classList.remove('fade')
+
   } else if (e.target.classList == "text") {
     document.getElementsByClassName('text')[0].innerHTML = "Would you like to try it?"
     document.getElementsByClassName('text')[0].classList.add('fade')
@@ -66,7 +84,7 @@ function transitionEnd(e) {
 
     window.addEventListener('keydown', keyPress);
     window.addEventListener('keyup', keyRelease)
-    
+
   }
 }
 
@@ -74,4 +92,3 @@ function transitionEnd(e) {
 document.onload = document.getElementsByClassName('text')[0].classList.add('fade')
 
 window.addEventListener('transitionend', transitionEnd)
-
