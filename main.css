@@ -1,3 +1,12 @@
+:root {
+  --purpleKey: #7365B5;
+  --darkPurpleKey: #413966;
+  --pinkKey: #e034ef;
+  --darkPinkKey: #781c80;
+  --yellowKey: #efe034;
+  --darkYellowKey: #80781c;
+}
+
 body {
   font-family: 'Roboto',
     sans-serif;
@@ -75,8 +84,8 @@ body {
 }
 
 #escape {
-  background-color: #e034ef;
-  border: 1px solid #781c80
+  background-color: var(--pinkKey);
+  border: 1px solid var(--darkPinkKey);
 }
 
 #backspace {
@@ -98,21 +107,21 @@ body {
 
 #shiftL {
   width: 144px;
-  background-color: #efe034;
-  border: 1px solid #80781c;
+  background-color: var(--yellowKey);
+  border: 1px solid var(--darkYellowKey);
 }
 
 #shiftR {
   width: 184px;
-  background-color: #efe034;
-  border: 1px solid #80781c;
+  background-color: var(--yellowKey);
+  border: 1px solid var(--darkYellowKey);
 }
 
 #ctrlL,
 #ctrlR {
   width: 68px;
-  background-color: #e034ef;
-  border: 1px solid #781c80
+  background-color: var(--pinkKey);
+  border: 1px solid var(--darkPinkKey)
 }
 
 #start {
@@ -124,8 +133,8 @@ body {
 #altL,
 #altR {
   width: 68px;
-  background-color: #7365B5;
-  border: 1px solid #413966;
+  background-color: var(--purpleKey);
+  border: 1px solid var(--darkPurpleKey);
 }
 
 #fn1,
